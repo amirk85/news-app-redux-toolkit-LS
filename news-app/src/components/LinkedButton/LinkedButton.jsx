@@ -13,7 +13,8 @@ const btns = [
   "general",
   "sports",
   "tesla",
-  "gaming",
+  "anime",
+  "nature",
   "entertainment",
 ];
 
@@ -36,7 +37,7 @@ export default function LinkedButton() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
         gap: "1.5rem",
         flexWrap: "wrap",
         marginTop: "2rem",
