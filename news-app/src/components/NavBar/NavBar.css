@@ -1,0 +1,10 @@
+a {
+  color: #fff !important;
+  margin-right: 1rem !important;
+  text-decoration: none !important;
+}
+
+.active {
+  color: rgb(70, 70, 255) !important;
+  font-weight: 500 !important;
+}
