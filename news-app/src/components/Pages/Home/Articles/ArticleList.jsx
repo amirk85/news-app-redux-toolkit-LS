@@ -16,7 +16,7 @@ export default function ArticleList() {
   const navigate = useNavigate();
 
   async function fetchAllData() {
-    const url = `${BASE_URL}bitcoin&apiKey=${API_KEY}`;
+    const url = `${BASE_URL}business&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
     dispatch(GET_ALL_ARTICLES(data.articles));
   }

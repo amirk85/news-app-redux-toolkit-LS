@@ -9,7 +9,7 @@ const btns = [
   "business",
   "health",
   "science",
-  "technoloy",
+  "technology",
   "general",
   "sports",
   "tesla",
@@ -19,18 +19,18 @@ const btns = [
 ];
 
 export default function LinkedButton() {
-  const [btnValue, setBtnValue] = useState();
+  const [btnValue, setBtnValue] = useState(null);
   const dispatch = useDispatch();
-
-  async function btnFetchData() {
-    const url = `${BASE_URL}${btnValue}&apiKey=${API_KEY}`;
-    const { data } = await axios.get(url);
-    dispatch(BTN_FETCH_ARTICLES(data.articles));
-  }
 
   function btnFetchHandler(e) {
     setBtnValue(e.target.value);
     btnFetchData();
+  }
+
+  async function btnFetchData() {
+    const url = await `${BASE_URL}${btnValue}&apiKey=${API_KEY}`;
+    const { data } = await axios.get(url);
+    dispatch(BTN_FETCH_ARTICLES(data.articles));
   }
 
   return (
