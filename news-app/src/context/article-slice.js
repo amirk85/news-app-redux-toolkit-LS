@@ -13,9 +13,12 @@ const articleSlice = createSlice({
     GET_ALL_ARTICLES(state, { payload }) {
       state.articleData = payload;
     },
+    SEARCHED_ARTICLES(state, { payload }) {
+      state.articleData = payload;
+    },
   },
 });
 
-export const { GET_ALL_ARTICLES } = articleSlice.actions;
+export const { GET_ALL_ARTICLES, SEARCHED_ARTICLES } = articleSlice.actions;
 export const ARTICLE_DATA = (state) => state.articles.articleData;
 export default articleSlice.reducer;
