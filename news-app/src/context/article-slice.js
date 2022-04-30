@@ -5,7 +5,7 @@ const storedFav = JSON.parse(localStorage.getItem("favArticle"));
 const initialState = {
   articleData: [],
   favData: storedFav || [],
-  isLoading: true,
+  loading: true,
 };
 
 const articleSlice = createSlice({

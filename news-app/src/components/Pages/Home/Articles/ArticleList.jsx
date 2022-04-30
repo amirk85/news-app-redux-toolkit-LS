@@ -19,7 +19,6 @@ export default function ArticleList() {
     const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
     dispatch(GET_ALL_ARTICLES(data.articles));
-    console.log(data);
   }
 
   useEffect(() => {
@@ -28,22 +27,36 @@ export default function ArticleList() {
   }, []);
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          md: "1fr 1fr 1fr",
-          sm: "1fr 1fr",
-          xs: "1fr",
-        },
-        gap: "1.5rem",
-        padding: "1rem",
-        marginTop: "2rem",
-      }}
-    >
-      {articleData.map((article) => (
-        <ArticleItem key={article.url} article={article} />
-      ))}
-    </Box>
+    <div>
+      {articleData.length === 0 ? (
+        <h1
+          style={{
+            marginTop: "1rem",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
+          Loading...
+        </h1>
+      ) : (
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              md: "1fr 1fr 1fr",
+              sm: "1fr 1fr",
+              xs: "1fr",
+            },
+            gap: "1.5rem",
+            padding: "1rem",
+            marginTop: "2rem",
+          }}
+        >
+          {articleData.map((article) => (
+            <ArticleItem key={article.url} article={article} />
+          ))}
+        </Box>
+      )}
+    </div>
   );
 }
