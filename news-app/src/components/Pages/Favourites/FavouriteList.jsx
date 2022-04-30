@@ -15,7 +15,6 @@ export default function FavouriteList() {
             marginTop: "1rem",
             display: "grid",
             placeItems: "center",
-            height: "80vh",
           }}
         >
           No Favourite Found

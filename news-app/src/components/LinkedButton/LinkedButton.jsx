@@ -36,10 +36,10 @@ export default function LinkedButton() {
     <div
       style={{
         display: "flex",
-        marginTop: "2rem",
         justifyContent: "space-evenly",
         gap: "1.5rem",
         flexWrap: "wrap",
+        marginTop: "2rem",
       }}
     >
       {btns.map((btn) => {
