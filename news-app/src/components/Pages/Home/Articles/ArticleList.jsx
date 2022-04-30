@@ -5,7 +5,7 @@ import {
   GET_ALL_ARTICLES,
 } from "../../../../context/article-slice";
 import axios from "axios";
-import { API_KEY } from "../../../../API/ApiKey";
+import { API_KEY, BASE_URL } from "../../../../API/API";
 import ArticleItem from "./ArticleItem";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function ArticleList() {
   const navigate = useNavigate();
 
   async function fetchAllData() {
-    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API_KEY}`;
+    const url = `${BASE_URL}bitcoin&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
     dispatch(GET_ALL_ARTICLES(data.articles));
   }

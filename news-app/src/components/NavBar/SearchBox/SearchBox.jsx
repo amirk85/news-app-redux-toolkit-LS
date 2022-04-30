@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Container, Form, FormControl, Button } from "react-bootstrap";
 // import { Button } from "@mui/material";
 import axios from "axios";
-import { API_KEY } from "../../API/ApiKey";
+import { API_KEY, BASE_URL } from "../../../API/API";
 import { useDispatch } from "react-redux";
-import { SEARCHED_ARTICLES } from "../../context/article-slice";
+import { SEARCHED_ARTICLES } from "../../../context/article-slice";
 
 export default function SearchBox() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
   async function fetchSearchData() {
-    const url = `https://newsapi.org/v2/everything?q=${input}&apiKey=${API_KEY}`;
+    const url = `${BASE_URL}=${input}&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
 
     dispatch(SEARCHED_ARTICLES(data.articles));

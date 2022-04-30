@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
-import { API_KEY } from "../../API/ApiKey";
+import { API_KEY, BASE_URL } from "../../API/API";
 import { useDispatch } from "react-redux";
 import { BTN_FETCH_ARTICLES } from "../../context/article-slice";
 
@@ -22,7 +22,7 @@ export default function LinkedButton() {
   const dispatch = useDispatch();
 
   async function btnFetchData() {
-    const url = `https://newsapi.org/v2/everything?q=${btnValue}&apiKey=${API_KEY}`;
+    const url = `${BASE_URL}${btnValue}&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
     dispatch(BTN_FETCH_ARTICLES(data.articles));
   }

@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
-import SearchBox from "./SearchBox";
+import SearchBox from "./SearchBox/SearchBox";
 
 export default function NavBar() {
   return (
