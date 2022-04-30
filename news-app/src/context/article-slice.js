@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storedFav = JSON.parse(localStorage.getItem("favArticle"));
+
 const initialState = {
   articleData: [],
-  favData: [],
+  favData: storedFav || [],
   isLoading: true,
 };
 
@@ -19,11 +21,25 @@ const articleSlice = createSlice({
     BTN_FETCH_ARTICLES(state, { payload }) {
       state.articleData = payload;
     },
+    ADD_TO_FAV(state, { payload }) {
+      state.favData.push(payload);
+      localStorage.setItem("favArticle", JSON.stringify(state.favData));
+    },
+    REMOVE_FAV(state, { payload }) {
+      const filteredFav = state.favData.filter((fav) => fav.url !== payload);
+      state.favData = filteredFav;
+      localStorage.setItem("favArticle", JSON.stringify(filteredFav));
+    },
   },
 });
 
-export const { GET_ALL_ARTICLES, SEARCHED_ARTICLES, BTN_FETCH_ARTICLES } =
-  articleSlice.actions;
+export const {
+  GET_ALL_ARTICLES,
+  SEARCHED_ARTICLES,
+  BTN_FETCH_ARTICLES,
+  ADD_TO_FAV,
+  REMOVE_FAV,
+} = articleSlice.actions;
 
 export const ARTICLE_DATA = (state) => state.articles.articleData;
 export const FAV_DATA = (state) => state.articles.favData;

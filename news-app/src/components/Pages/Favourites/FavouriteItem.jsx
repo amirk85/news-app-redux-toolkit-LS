@@ -4,31 +4,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  ADD_TO_FAV,
-  ARTICLE_DATA,
-  FAV_DATA,
-} from "../../../../context/article-slice";
-import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { REMOVE_FAV } from "../../../context/article-slice";
 
-export default function ArticleItem({ article }) {
+export default function FavouriteItem({ article }) {
   const { description, title, url, urlToImage } = article;
-  const articleData = useSelector(ARTICLE_DATA);
-  const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
 
-  function addToFavHandler(url) {
-    const favArticle = articleData.find((article) => article.url === url);
-    const checkFav = favData.find((fav) => fav.url === favArticle.url);
-    if (checkFav) {
-      Swal.fire("Already Added in Fav");
-      return;
-    }
-    if (favArticle) {
-      Swal.fire("Add to Favourite...");
-    }
-    dispatch(ADD_TO_FAV(favArticle));
+  function removeFavHandler(url) {
+    dispatch(REMOVE_FAV(url));
   }
 
   return (
@@ -56,9 +40,9 @@ export default function ArticleItem({ article }) {
         <Button
           variant="contained"
           size="small"
-          onClick={() => addToFavHandler(article.url)}
+          onClick={() => removeFavHandler(url)}
         >
-          Add to Favorite
+          remove
         </Button>
         <Button variant="outlined" size="small">
           <a className="learn_more" href={url} target="_blank">
