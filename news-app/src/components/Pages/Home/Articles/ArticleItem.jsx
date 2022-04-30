@@ -22,7 +22,7 @@ export default function ArticleItem({ article }) {
   const dispatch = useDispatch();
   const [btn, setBtn] = React.useState(<FavoriteBorderIcon />);
 
-  function fetchFavFromFavList() {
+  function onFetchFav() {
     return favData.map((article) => {
       if (article.url === url) {
         setBtn(<FavoriteIcon />);
@@ -31,19 +31,29 @@ export default function ArticleItem({ article }) {
   }
 
   React.useEffect(() => {
-    fetchFavFromFavList();
+    onFetchFav();
   }, [favData]);
 
   function addToFavHandler(url) {
     const favArticle = articleData.find((article) => article.url === url);
     const checkFav = favData.find((fav) => fav.url === favArticle.url);
     if (checkFav) {
-      Swal.fire("Already Added!!!");
-      console.log(url);
+      dispatch(REMOVE_FAV(checkFav.url));
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirm",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Removed!", "Removed From Favourites", "success");
+          dispatch(REMOVE_FAV(url));
+        }
+      });
       return;
-    }
-    if (favArticle) {
-      Swal.fire("Added Successfully");
     }
     dispatch(ADD_TO_FAV(favArticle));
   }

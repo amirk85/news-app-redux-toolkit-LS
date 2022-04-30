@@ -7,6 +7,7 @@ import { Button, CardActions } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { REMOVE_FAV } from "../../../context/article-slice";
 import Swal from "sweetalert2";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 
 export default function FavouriteItem({ article }) {
   const { description, title, url, urlToImage } = article;
@@ -23,7 +24,7 @@ export default function FavouriteItem({ article }) {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Deleted successfully.", "success");
+        Swal.fire("Removed!", "Removed From Favourites", "success");
         dispatch(REMOVE_FAV(url));
       }
     });
@@ -59,11 +60,24 @@ export default function FavouriteItem({ article }) {
         }}
       >
         <Button
+          variant="contained"
+          size="small"
+          style={{
+            position: "absolute",
+            top: "0px",
+            right: "0px",
+            backgroundColor: "tomato",
+          }}
+          onClick={() => removeFavHandler(url)}
+        >
+          <ClearOutlinedIcon />
+        </Button>
+        <Button
           variant="outlined"
           size="small"
           onClick={() => removeFavHandler(url)}
         >
-          remove
+          REMOVE
         </Button>
         <Button variant="outlined" size="small">
           <a className="learn_more" href={url} target="_blank">
