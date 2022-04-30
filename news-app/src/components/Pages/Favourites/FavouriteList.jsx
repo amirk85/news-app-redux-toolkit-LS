@@ -8,22 +8,37 @@ export default function FavouriteList() {
   const favData = useSelector(FAV_DATA);
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          md: "1fr 1fr 1fr",
-          sm: "1fr 1fr",
-          xs: "1fr",
-        },
-        gap: "1.5rem",
-        padding: "1rem",
-        marginTop: "2rem",
-      }}
-    >
-      {favData.map((article) => (
-        <FavouriteItem key={article.url} article={article} />
-      ))}
-    </Box>
+    <div>
+      {favData.length === 0 ? (
+        <h1
+          style={{
+            marginTop: "1rem",
+            display: "grid",
+            placeItems: "center",
+            height: "80vh",
+          }}
+        >
+          No Favourite Found
+        </h1>
+      ) : (
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              md: "1fr 1fr 1fr",
+              sm: "1fr 1fr",
+              xs: "1fr",
+            },
+            gap: "1.5rem",
+            padding: "1rem",
+            marginTop: "2rem",
+          }}
+        >
+          {favData.map((article) => (
+            <FavouriteItem key={article.url} article={article} />
+          ))}
+        </Box>
+      )}
+    </div>
   );
 }

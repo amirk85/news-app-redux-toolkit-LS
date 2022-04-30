@@ -22,11 +22,11 @@ export default function ArticleItem({ article }) {
     const favArticle = articleData.find((article) => article.url === url);
     const checkFav = favData.find((fav) => fav.url === favArticle.url);
     if (checkFav) {
-      Swal.fire("Already Added in Fav");
+      Swal.fire("Already Added!!!");
       return;
     }
     if (favArticle) {
-      Swal.fire("Add to Favourite...");
+      Swal.fire("Added Successfully");
     }
     dispatch(ADD_TO_FAV(favArticle));
   }

@@ -6,13 +6,27 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { REMOVE_FAV } from "../../../context/article-slice";
+import Swal from "sweetalert2";
 
 export default function FavouriteItem({ article }) {
   const { description, title, url, urlToImage } = article;
   const dispatch = useDispatch();
 
   function removeFavHandler(url) {
-    dispatch(REMOVE_FAV(url));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Deleted successfully.", "success");
+        dispatch(REMOVE_FAV(url));
+      }
+    });
   }
 
   return (
