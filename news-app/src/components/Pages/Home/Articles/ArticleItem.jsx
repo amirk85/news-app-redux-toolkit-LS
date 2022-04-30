@@ -11,6 +11,7 @@ import {
   ADD_TO_FAV,
   ARTICLE_DATA,
   FAV_DATA,
+  REMOVE_FAV,
 } from "../../../../context/article-slice";
 import Swal from "sweetalert2";
 
@@ -31,13 +32,14 @@ export default function ArticleItem({ article }) {
 
   React.useEffect(() => {
     fetchFavFromFavList();
-  }, [btn, addToFavHandler]);
+  }, [favData]);
 
   function addToFavHandler(url) {
     const favArticle = articleData.find((article) => article.url === url);
     const checkFav = favData.find((fav) => fav.url === favArticle.url);
     if (checkFav) {
       Swal.fire("Already Added!!!");
+      console.log(url);
       return;
     }
     if (favArticle) {

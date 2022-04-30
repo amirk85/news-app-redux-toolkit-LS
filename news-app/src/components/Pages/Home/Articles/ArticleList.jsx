@@ -8,12 +8,10 @@ import axios from "axios";
 import { API_KEY, BASE_URL } from "../../../../API/API";
 import ArticleItem from "./ArticleItem";
 import { Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 
 export default function ArticleList() {
   const articleData = useSelector(ARTICLE_DATA);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   async function fetchAllData() {
     const url = `${BASE_URL}business&apiKey=${API_KEY}`;
@@ -23,7 +21,6 @@ export default function ArticleList() {
 
   useEffect(() => {
     fetchAllData();
-    navigate("/");
   }, []);
 
   return (

@@ -20,7 +20,7 @@ export default function FavouriteItem({ article }) {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Deleted successfully.", "success");
@@ -59,7 +59,7 @@ export default function FavouriteItem({ article }) {
         }}
       >
         <Button
-          variant="contained"
+          variant="outlined"
           size="small"
           onClick={() => removeFavHandler(url)}
         >

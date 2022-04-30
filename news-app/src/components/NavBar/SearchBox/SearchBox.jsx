@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Form, FormControl, Button } from "react-bootstrap";
+import { Form, FormControl } from "react-bootstrap";
+import { Button } from "@mui/material";
 import axios from "axios";
 import { API_KEY, BASE_URL } from "../../../API/API";
 import { useDispatch } from "react-redux";
 import { SEARCHED_ARTICLES } from "../../../context/article-slice";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 export default function SearchBox() {
   const [input, setInput] = useState("");
@@ -35,8 +37,12 @@ export default function SearchBox() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <Button variant="dark" type="submit">
-        SEARCH
+      <Button
+        variant="contained"
+        style={{ backgroundColor: "#292f33" }}
+        type="submit"
+      >
+        <SearchOutlinedIcon />
       </Button>
     </Form>
   );
