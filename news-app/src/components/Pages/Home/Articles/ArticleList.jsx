@@ -14,9 +14,8 @@ export default function ArticleList() {
   const dispatch = useDispatch();
 
   async function fetchAllData() {
-    const { data } = await axios.get(
-      `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API_KEY}`
-    );
+    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API_KEY}`;
+    const { data } = await axios.get(url);
     dispatch(GET_ALL_ARTICLES(data.articles));
   }
 

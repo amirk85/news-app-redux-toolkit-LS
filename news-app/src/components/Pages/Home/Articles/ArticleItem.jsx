@@ -27,6 +27,7 @@ export default function ArticleItem({ article }) {
           display: "flex",
           justifyContent: "space-between",
           flexWrap: "nowrap",
+          alignItems: "flex-end",
         }}
       >
         <Button variant="contained" size="small">

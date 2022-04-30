@@ -1,10 +1,9 @@
 a {
   color: #fff !important;
-  margin-right: 1rem !important;
   text-decoration: none !important;
 }
 
 .active {
-  color: rgb(22, 22, 25)  !important;
+  color: rgb(22, 22, 25) !important;
   font-weight: 600 !important;
 }

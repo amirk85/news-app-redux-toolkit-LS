@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, FormControl, Button } from "react-bootstrap";
+// import { Button } from "@mui/material";
 import axios from "axios";
 import { API_KEY } from "../../API/ApiKey";
 import { useDispatch } from "react-redux";
@@ -10,9 +11,8 @@ export default function SearchBox() {
   const dispatch = useDispatch();
 
   async function fetchSearchData() {
-    const { data } = await axios.get(
-      `https://newsapi.org/v2/everything?q=${input}&apiKey=${API_KEY}`
-    );
+    const url = `https://newsapi.org/v2/everything?q=${input}&apiKey=${API_KEY}`;
+    const { data } = await axios.get(url);
 
     dispatch(SEARCHED_ARTICLES(data.articles));
   }
@@ -24,8 +24,12 @@ export default function SearchBox() {
   }
 
   return (
-    <Container>
-      <Form onSubmit={submitHandler} className="d-flex">
+    <div>
+      <Form
+        style={{ marginRight: "1rem" }}
+        onSubmit={submitHandler}
+        className="d-flex"
+      >
         <FormControl
           type="search"
           placeholder="Search"
@@ -34,10 +38,10 @@ export default function SearchBox() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <Button variant="warning" type="submit">
-          Search
+        <Button variant="dark" type="submit">
+          SEARCH
         </Button>
       </Form>
-    </Container>
+    </div>
   );
 }

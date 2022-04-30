@@ -8,12 +8,14 @@ export default function NavBar() {
     <Navbar bg="primary" expand="lg" className="nav__container">
       <Container>
         <Navbar.Brand style={{ color: "white", marginRight: "2rem" }}>
-          News App
+          <h4>News App</h4>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="/">Home</NavLink>
+            <NavLink style={{ marginRight: "2rem" }} to="/">
+              Home
+            </NavLink>
             <NavLink to="/favourites">Favourites</NavLink>
           </Nav>
         </Navbar.Collapse>
