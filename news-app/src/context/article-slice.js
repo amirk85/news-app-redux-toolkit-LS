@@ -5,7 +5,6 @@ const storedFav = JSON.parse(localStorage.getItem("favArticle"));
 const initialState = {
   articleData: [],
   favData: storedFav || [],
-  loading: true,
 };
 
 const articleSlice = createSlice({
@@ -30,6 +29,10 @@ const articleSlice = createSlice({
       state.favData = filteredFav;
       localStorage.setItem("favArticle", JSON.stringify(filteredFav));
     },
+    CLEAR_FAV(state) {
+      state.favData = [];
+      localStorage.removeItem("favArticle");
+    },
   },
 });
 
@@ -39,6 +42,8 @@ export const {
   BTN_FETCH_ARTICLES,
   ADD_TO_FAV,
   REMOVE_FAV,
+  TOGGLE_FAV,
+  CLEAR_FAV,
 } = articleSlice.actions;
 
 export const ARTICLE_DATA = (state) => state.articles.articleData;

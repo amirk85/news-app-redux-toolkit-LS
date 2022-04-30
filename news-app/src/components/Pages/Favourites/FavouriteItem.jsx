@@ -34,7 +34,14 @@ export default function FavouriteItem({ article }) {
       style={{ boxShadow: "0px 5px 10px #444", position: "relative" }}
       sx={{ maxWidth: 600 }}
     >
-      <CardMedia component="img" height="140" image={urlToImage} alt={title} />
+      <a href={url} target="_blank">
+        <CardMedia
+          component="img"
+          height="140"
+          image={urlToImage}
+          alt={title}
+        />
+      </a>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}

@@ -5,6 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   ADD_TO_FAV,
   ARTICLE_DATA,
@@ -17,6 +19,19 @@ export default function ArticleItem({ article }) {
   const articleData = useSelector(ARTICLE_DATA);
   const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
+  const [btn, setBtn] = React.useState(<FavoriteBorderIcon />);
+
+  function fetchFavFromFavList() {
+    return favData.map((article) => {
+      if (article.url === url) {
+        setBtn(<FavoriteIcon />);
+      }
+    });
+  }
+
+  React.useEffect(() => {
+    fetchFavFromFavList();
+  }, [btn, addToFavHandler]);
 
   function addToFavHandler(url) {
     const favArticle = articleData.find((article) => article.url === url);
@@ -36,7 +51,14 @@ export default function ArticleItem({ article }) {
       style={{ boxShadow: "0px 5px 10px #444", position: "relative" }}
       sx={{ maxWidth: 600 }}
     >
-      <CardMedia component="img" height="140" image={urlToImage} alt={title} />
+      <a href={url} target="_blank">
+        <CardMedia
+          component="img"
+          height="140"
+          image={urlToImage}
+          alt={title}
+        />
+      </a>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -54,12 +76,13 @@ export default function ArticleItem({ article }) {
         }}
       >
         <Button
-          variant="contained"
+          variant="outlined"
           size="small"
           onClick={() => addToFavHandler(article.url)}
         >
-          Add to Favorite
+          Add To Favourite &nbsp; {btn}
         </Button>
+
         <Button variant="outlined" size="small">
           <a className="learn_more" href={url} target="_blank">
             Learn More...

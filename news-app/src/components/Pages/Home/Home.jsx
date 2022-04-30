@@ -4,7 +4,6 @@ import { ARTICLE_DATA } from "../../../context/article-slice";
 import Footer from "../../Footer/Footer";
 import LinkedButton from "../../LinkedButton/LinkedButton";
 import ArticleList from "./Articles/ArticleList";
-import "./Home.css";
 
 export default function Home() {
   const articleData = useSelector(ARTICLE_DATA);
