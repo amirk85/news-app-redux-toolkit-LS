@@ -7,3 +7,8 @@ a {
   font-weight: 600 !important;
   text-decoration: underline !important;
 }
+
+/* card link (Learn More) */
+.learn_more {
+  color: #333 !important;
+}
