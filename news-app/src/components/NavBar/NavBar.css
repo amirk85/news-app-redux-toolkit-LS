@@ -4,7 +4,6 @@ a {
 }
 
 .active {
-  /* color: rgb(32, 32, 32) !important; */
   font-weight: 600 !important;
   text-decoration: underline !important;
 }

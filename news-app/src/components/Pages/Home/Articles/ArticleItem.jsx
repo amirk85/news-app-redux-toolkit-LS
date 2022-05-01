@@ -22,7 +22,6 @@ export default function ArticleItem({ article }) {
   const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [btn, setBtn] = React.useState(<FavoriteBorderIcon />);
 
   function onFetchFav() {
@@ -42,7 +41,6 @@ export default function ArticleItem({ article }) {
     const favArticle = articleData.find((article) => article.url === url);
     const checkFav = favData.find((fav) => fav.url === favArticle.url);
     if (checkFav) {
-      dispatch(REMOVE_FAV(checkFav.url));
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -55,7 +53,6 @@ export default function ArticleItem({ article }) {
         if (result.isConfirmed) {
           Swal.fire("Removed!", "Removed From Favourites", "success");
           dispatch(REMOVE_FAV(url));
-          // window.location.reload(false);
           navigate("/favourites");
         }
       });
