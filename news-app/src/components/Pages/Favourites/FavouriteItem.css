@@ -1,0 +1,9 @@
+.favourite_card {
+  box-shadow: 0px 3px 10px #444 !important;
+  transition: all 0.3s !important;
+}
+
+.favourite_card:hover {
+  transform: scale(1.05) !important;
+  transition: all 0.3s !important;
+}

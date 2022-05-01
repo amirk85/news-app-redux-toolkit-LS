@@ -15,6 +15,7 @@ import {
 } from "../../../../context/article-slice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import "./ArticleItem.css";
 
 export default function ArticleItem({ article }) {
   const { description, title, url, urlToImage } = article;
@@ -62,10 +63,7 @@ export default function ArticleItem({ article }) {
   }
 
   return (
-    <Card
-      style={{ boxShadow: "0px 3px 10px #444", position: "relative" }}
-      sx={{ maxWidth: 600 }}
-    >
+    <Card className="article_card" sx={{ maxWidth: 600 }}>
       <a href={url} target="_blank">
         <CardMedia
           component="img"

@@ -9,6 +9,7 @@ import { REMOVE_FAV } from "../../../context/article-slice";
 import Swal from "sweetalert2";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import { useNavigate } from "react-router-dom";
+import "./FavouriteItem.css";
 
 export default function FavouriteItem({ article }) {
   const { description, title, url, urlToImage } = article;
@@ -35,6 +36,7 @@ export default function FavouriteItem({ article }) {
 
   return (
     <Card
+      className="favourite_card"
       style={{ boxShadow: "0px 3px 10px #444", position: "relative" }}
       sx={{ maxWidth: 600 }}
     >
@@ -73,7 +75,7 @@ export default function FavouriteItem({ article }) {
           }}
           onClick={() => removeFavHandler(url)}
         >
-          <ClearOutlinedIcon />
+          <ClearOutlinedIcon style={{ height: "20px" }} />
         </Button>
         <Button
           variant="outlined"
