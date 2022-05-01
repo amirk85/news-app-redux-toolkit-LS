@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ARTICLE_DATA,
-  GET_ALL_ARTICLES,
+  GET_ASYNC_DATA,
 } from "../../../../context/article-slice";
-import axios from "axios";
-import { API_KEY, BASE_URL } from "../../../../API/API";
+
 import ArticleItem from "./ArticleItem";
 import { Box } from "@mui/material";
 
@@ -13,15 +12,9 @@ export default function ArticleList() {
   const articleData = useSelector(ARTICLE_DATA);
   const dispatch = useDispatch();
 
-  async function fetchAllData() {
-    const url = `${BASE_URL}business&apiKey=${API_KEY}`;
-    const { data } = await axios.get(url);
-    dispatch(GET_ALL_ARTICLES(data.articles));
-  }
-
   useEffect(() => {
-    fetchAllData();
-  }, []);
+    dispatch(GET_ASYNC_DATA());
+  }, [dispatch]);
 
   return (
     <div>

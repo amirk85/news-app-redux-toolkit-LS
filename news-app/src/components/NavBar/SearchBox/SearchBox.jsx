@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 import { Form, FormControl } from "react-bootstrap";
 import { Button } from "@mui/material";
-import axios from "axios";
-import { API_KEY, BASE_URL } from "../../../API/API";
 import { useDispatch } from "react-redux";
-import { SEARCHED_ARTICLES } from "../../../context/article-slice";
+import { SEARCHED_ASYNC_DATA } from "../../../context/article-slice";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 export default function SearchBox() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-  async function fetchSearchData() {
-    const url = `${BASE_URL}=${input}&apiKey=${API_KEY}`;
-    const { data } = await axios.get(url);
-
-    dispatch(SEARCHED_ARTICLES(data.articles));
-  }
 
   function submitHandler(e) {
     e.preventDefault();
-    fetchSearchData();
+    dispatch(SEARCHED_ASYNC_DATA(input));
     setInput("");
   }
 

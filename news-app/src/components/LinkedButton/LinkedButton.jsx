@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import axios from "axios";
-import { API_KEY, BASE_URL } from "../../API/API";
 import { useDispatch } from "react-redux";
-import { BTN_FETCH_ARTICLES } from "../../context/article-slice";
+import { BTN_FETCH_ASYNC_DATA } from "../../context/article-slice";
 
 const btns = [
   "business",
@@ -24,13 +22,7 @@ export default function LinkedButton() {
 
   function btnFetchHandler(e) {
     setBtnValue(e.target.value);
-    btnFetchData();
-  }
-
-  async function btnFetchData() {
-    const url = await `${BASE_URL}${btnValue}&apiKey=${API_KEY}`;
-    const { data } = await axios.get(url);
-    dispatch(BTN_FETCH_ARTICLES(data.articles));
+    dispatch(BTN_FETCH_ASYNC_DATA(btnValue));
   }
 
   return (
