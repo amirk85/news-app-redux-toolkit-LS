@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import "./ArticleItem.css";
 
 export default function ArticleItem({ article }) {
-  const { description, title, url, urlToImage } = article;
+  const { author, title, url, urlToImage } = article;
   const articleData = useSelector(ARTICLE_DATA);
   const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
@@ -67,17 +67,17 @@ export default function ArticleItem({ article }) {
       <a href={url} target="_blank">
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={urlToImage}
           alt={title}
         />
       </a>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          {title}
         </Typography>
       </CardContent>
       <CardActions
@@ -93,7 +93,7 @@ export default function ArticleItem({ article }) {
           size="small"
           onClick={() => addToFavHandler(article.url)}
         >
-          Add To Favourite &nbsp; {btn}
+          {btn}
         </Button>
 
         <Button variant="outlined" size="small">

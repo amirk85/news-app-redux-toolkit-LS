@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import "./FavouriteItem.css";
 
 export default function FavouriteItem({ article }) {
-  const { description, title, url, urlToImage } = article;
+  const { author, title, url, urlToImage } = article;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -50,10 +50,10 @@ export default function FavouriteItem({ article }) {
       </a>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          {title}
         </Typography>
       </CardContent>
       <CardActions

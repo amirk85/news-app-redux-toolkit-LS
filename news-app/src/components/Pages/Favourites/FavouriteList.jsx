@@ -52,13 +52,10 @@ export default function FavouriteList() {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: {
-              md: "repeat(3,1fr)",
-              sm: "repeat(2,1fr)",
-              xs: "1fr",
-            },
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px,1fr))",
             gap: "1.5rem",
             padding: "1rem",
+            marginTop: "2rem",
           }}
         >
           {favData.map((article) => (
