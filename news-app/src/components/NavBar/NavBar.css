@@ -5,10 +5,27 @@ a {
 
 .active {
   font-weight: 600 !important;
-  text-decoration: underline !important;
+  color: #292f33 !important;
+  /* text-decoration: underline !important; */
 }
 
 /* card link (Learn More) */
 .learn_more {
   color: #333 !important;
+}
+
+.side_bar {
+  color: white !important;
+}
+
+.fav_count {
+  color: white !important;
+  font-size: 1.1rem !important;
+  background-color: tomato !important;
+  padding: 0 7px !important;
+  height: 25px !important;
+  width: 25px !important;
+  text-align: center;
+  border-radius: 50% !important;
+  font-weight: 500 !important;
 }
