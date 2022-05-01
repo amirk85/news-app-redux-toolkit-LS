@@ -20,7 +20,7 @@ export default function FavouriteList() {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Deleted successfully.", "success");
+        Swal.fire("Removed All!", "Removed successfully.", "success");
         dispatch(CLEAR_FAV());
       }
     });
@@ -53,8 +53,8 @@ export default function FavouriteList() {
           sx={{
             display: "grid",
             gridTemplateColumns: {
-              md: "1fr 1fr 1fr",
-              sm: "1fr 1fr",
+              md: "repeat(3,1fr)",
+              sm: "repeat(2,1fr)",
               xs: "1fr",
             },
             gap: "1.5rem",

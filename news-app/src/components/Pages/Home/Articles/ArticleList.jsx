@@ -40,8 +40,8 @@ export default function ArticleList() {
           sx={{
             display: "grid",
             gridTemplateColumns: {
-              md: "1fr 1fr 1fr",
-              sm: "1fr 1fr",
+              md: "repeat(3,1fr)",
+              sm: "repeat(2,1fr)",
               xs: "1fr",
             },
             gap: "1.5rem",
