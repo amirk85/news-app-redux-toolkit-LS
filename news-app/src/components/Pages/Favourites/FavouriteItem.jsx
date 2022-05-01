@@ -8,10 +8,12 @@ import { useDispatch } from "react-redux";
 import { REMOVE_FAV } from "../../../context/article-slice";
 import Swal from "sweetalert2";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import { useNavigate } from "react-router-dom";
 
 export default function FavouriteItem({ article }) {
   const { description, title, url, urlToImage } = article;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function removeFavHandler(url) {
     Swal.fire({
@@ -26,13 +28,14 @@ export default function FavouriteItem({ article }) {
       if (result.isConfirmed) {
         Swal.fire("Removed!", "Removed From Favourites", "success");
         dispatch(REMOVE_FAV(url));
+        navigate("/favourites");
       }
     });
   }
 
   return (
     <Card
-      style={{ boxShadow: "0px 5px 10px #444", position: "relative" }}
+      style={{ boxShadow: "0px 3px 10px #444", position: "relative" }}
       sx={{ maxWidth: 600 }}
     >
       <a href={url} target="_blank">

@@ -28,13 +28,16 @@ export default function FavouriteList() {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        style={{ backgroundColor: "tomato", margin: "1rem" }}
-        onClick={clearAllFav}
-      >
-        Clear All
-      </Button>
+      {favData.length > 0 && (
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "tomato", margin: "1rem" }}
+          onClick={clearAllFav}
+        >
+          Clear All
+        </Button>
+      )}
+
       {favData.length === 0 ? (
         <h1
           style={{
