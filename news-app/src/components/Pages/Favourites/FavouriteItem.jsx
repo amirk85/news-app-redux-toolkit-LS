@@ -43,7 +43,7 @@ export default function FavouriteItem({ article }) {
       <a href={url} target="_blank">
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={urlToImage}
           alt={title}
         />

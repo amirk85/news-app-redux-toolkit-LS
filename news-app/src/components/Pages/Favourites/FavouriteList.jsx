@@ -55,7 +55,6 @@ export default function FavouriteList() {
             gridTemplateColumns: "repeat(auto-fill, minmax(280px,1fr))",
             gap: "1.5rem",
             padding: "1rem",
-            marginTop: "2rem",
           }}
         >
           {favData.map((article) => (

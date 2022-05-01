@@ -77,7 +77,7 @@ export default function ArticleItem({ article }) {
           {author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <h5>{title}</h5>
+          {title}
         </Typography>
       </CardContent>
       <CardActions

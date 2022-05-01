@@ -4,6 +4,6 @@
 }
 
 .article_card:hover {
-  transform: scale(1.05) !important;
+  transform: scale(1.08) !important;
   transition: all 0.3s !important;
 }
