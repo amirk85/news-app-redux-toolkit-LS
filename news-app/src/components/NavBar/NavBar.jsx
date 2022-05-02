@@ -10,7 +10,7 @@ export default function NavBar() {
   const favCount = useSelector(FAV_DATA).length;
 
   return (
-    <Navbar bg="dark" expand="lg" className="nav__container">
+    <Navbar bg="primary" expand="lg" className="nav__container">
       <Container>
         <Navbar.Brand style={{ color: "white", marginRight: "2rem" }}>
           <h4>News App</h4>
@@ -21,7 +21,7 @@ export default function NavBar() {
             <NavLink style={{ marginRight: "2rem" }} to="/">
               Home
             </NavLink>
-            <Badge badgeContent={favCount} color="primary">
+            <Badge badgeContent={favCount} color="secondary">
               <NavLink to="/favourites">Favourites</NavLink>
             </Badge>
           </Nav>

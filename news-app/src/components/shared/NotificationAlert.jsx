@@ -30,10 +30,10 @@ export default function NotificationAlert() {
       >
         <Alert
           onClose={handleClose}
-          severity="secondary"
-          sx={{ width: "100%" }}
+          severity="primary"
+          sx={{ width: "100%", fontSize: "1.6rem" }}
         >
-          Add to favourites successfully!
+          Added to favourites successfully!
         </Alert>
       </Snackbar>
     </Stack>

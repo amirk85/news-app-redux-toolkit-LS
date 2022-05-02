@@ -1,5 +1,6 @@
 a {
   color: #fff !important;
+  font-size: 1.3rem !important;
   text-decoration: none !important;
 }
 
@@ -12,21 +13,9 @@ a {
 /* card link (Learn More) */
 .learn_more {
   color: #333 !important;
+  font-size: 1rem !important;
 }
 
 .side_bar {
   color: white !important;
-}
-
-.fav_count {
-  color: white !important;
-  font-size: 1.1rem !important;
-  background-color: tomato !important;
-  padding: 0 4px !important;
-  height: 25px !important;
-  width: 25px !important;
-  text-align: center;
-  border-radius: 50% !important;
-  font-weight: 500 !important;
-  /* text-decoration: none !important; */
 }

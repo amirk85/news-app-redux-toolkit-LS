@@ -55,7 +55,6 @@ export default function ArticleItem({ article }) {
         if (result.isConfirmed) {
           Swal.fire("Removed!", "Removed From Favourites", "success");
           dispatch(REMOVE_FAV(url));
-          navigate("/favourites");
         }
       });
       return;
