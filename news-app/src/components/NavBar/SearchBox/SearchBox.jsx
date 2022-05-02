@@ -31,7 +31,7 @@ export default function SearchBox() {
       />
       <Button
         variant="contained"
-        style={{ backgroundColor: "#292F33" }}
+        style={{ backgroundColor: "#e0e2e4", color: "#221F1F" }}
         type="submit"
       >
         <SearchOutlinedIcon />

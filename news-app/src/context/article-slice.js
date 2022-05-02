@@ -32,6 +32,7 @@ export const BTN_FETCH_ASYNC_DATA = createAsyncThunk(
 const initialState = {
   articleData: [],
   favData: storedFav || [],
+  success: null,
 };
 
 const articleSlice = createSlice({
@@ -51,6 +52,12 @@ const articleSlice = createSlice({
       state.favData = [];
       localStorage.removeItem("favArticle");
     },
+    OPEN_ALERT(state) {
+      state.success = true;
+    },
+    CLOSE_ALERT(state) {
+      state.success = false;
+    },
   },
   extraReducers: {
     [GET_ASYNC_DATA.fulfilled](state, { payload }) {
@@ -65,7 +72,8 @@ const articleSlice = createSlice({
   },
 });
 
-export const { ADD_TO_FAV, REMOVE_FAV, CLEAR_FAV } = articleSlice.actions;
+export const { ADD_TO_FAV, REMOVE_FAV, CLEAR_FAV, OPEN_ALERT, CLOSE_ALERT } =
+  articleSlice.actions;
 
 export const ARTICLE_DATA = (state) => state.articles.articleData;
 export const FAV_DATA = (state) => state.articles.favData;

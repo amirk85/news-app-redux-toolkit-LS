@@ -11,6 +11,7 @@ import {
   ADD_TO_FAV,
   ARTICLE_DATA,
   FAV_DATA,
+  OPEN_ALERT,
   REMOVE_FAV,
 } from "../../../../context/article-slice";
 import Swal from "sweetalert2";
@@ -60,6 +61,7 @@ export default function ArticleItem({ article }) {
       return;
     }
     dispatch(ADD_TO_FAV(favArticle));
+    dispatch(OPEN_ALERT());
   }
 
   return (

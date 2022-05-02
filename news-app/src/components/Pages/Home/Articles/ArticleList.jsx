@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   ARTICLE_DATA,
   GET_ASYNC_DATA,
 } from "../../../../context/article-slice";
-
 import ArticleItem from "./ArticleItem";
-import { Box } from "@mui/material";
 
 export default function ArticleList() {
   const articleData = useSelector(ARTICLE_DATA);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
     dispatch(GET_ASYNC_DATA());
   }, [dispatch]);
 
@@ -39,10 +41,16 @@ export default function ArticleList() {
           }}
         >
           {articleData.map((article) => (
-            <ArticleItem key={article.url} article={article} />
+            <ArticleItem
+              key={article.url}
+              article={article}
+              open={open}
+              setOpen={setOpen}
+            />
           ))}
         </Box>
       )}
+      
     </div>
   );
 }
