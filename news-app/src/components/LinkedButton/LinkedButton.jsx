@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { BTN_FETCH_ASYNC_DATA } from "../../context/article-slice";
+import { BTN_FETCH_ASYNC_DATA } from "../../store/article-slice";
 
 const btns = [
   "business",

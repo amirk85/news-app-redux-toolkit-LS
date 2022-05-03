@@ -13,7 +13,7 @@ import {
   FAV_DATA,
   OPEN_ALERT,
   REMOVE_FAV,
-} from "../../../../context/article-slice";
+} from "../../../../store/article-slice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./ArticleItem.css";
@@ -36,7 +36,6 @@ export default function ArticleItem({ article }) {
 
   React.useEffect(() => {
     onFetchFav();
-    navigate("/");
   }, [favData]);
 
   function addToFavHandler(url) {
@@ -55,6 +54,7 @@ export default function ArticleItem({ article }) {
         if (result.isConfirmed) {
           Swal.fire("Removed!", "Removed From Favourites", "success");
           dispatch(REMOVE_FAV(url));
+          navigate("/favourites");
         }
       });
       return;
@@ -96,7 +96,6 @@ export default function ArticleItem({ article }) {
         >
           {btn}
         </Button>
-
         <Button variant="outlined" size="small">
           <a className="learn_more" href={url} target="_blank">
             Learn More...

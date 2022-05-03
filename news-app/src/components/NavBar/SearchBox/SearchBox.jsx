@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormControl } from "react-bootstrap";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { SEARCHED_ASYNC_DATA } from "../../../context/article-slice";
+import { SEARCHED_ASYNC_DATA } from "../../../store/article-slice";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 export default function SearchBox() {
@@ -11,6 +11,7 @@ export default function SearchBox() {
 
   function submitHandler(e) {
     e.preventDefault();
+    if (input.trim().length === 0) return;
     dispatch(SEARCHED_ASYNC_DATA(input));
     setInput("");
   }

@@ -1,11 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import { v4 as uuidv4 } from "uuid";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
   ARTICLE_DATA,
   GET_ASYNC_DATA,
-} from "../../../../context/article-slice";
+} from "../../../../store/article-slice";
 import ArticleItem from "./ArticleItem";
 
 export default function ArticleList() {
@@ -42,7 +43,7 @@ export default function ArticleList() {
         >
           {articleData.map((article) => (
             <ArticleItem
-              key={article.url}
+              key={uuidv4()}
               article={article}
               open={open}
               setOpen={setOpen}
@@ -50,7 +51,6 @@ export default function ArticleList() {
           ))}
         </Box>
       )}
-      
     </div>
   );
 }

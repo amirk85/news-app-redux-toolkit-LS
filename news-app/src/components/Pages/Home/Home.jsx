@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ARTICLE_DATA } from "../../../context/article-slice";
+import { ARTICLE_DATA } from "../../../store/article-slice";
 import Footer from "../../Footer/Footer";
 import LinkedButton from "../../LinkedButton/LinkedButton";
 import NotificationAlert from "../../shared/NotificationAlert";

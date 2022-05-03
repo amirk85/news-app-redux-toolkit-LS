@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { REMOVE_FAV } from "../../../context/article-slice";
+import { REMOVE_FAV } from "../../../store/article-slice";
 import Swal from "sweetalert2";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import { useNavigate } from "react-router-dom";

@@ -17,6 +17,7 @@ export const SEARCHED_ASYNC_DATA = createAsyncThunk(
   async (input) => {
     const url = `${BASE_URL}${input}&apiKey=${API_KEY}`;
     const { data } = await axios.get(url);
+    console.log(data);
     return data.articles;
   }
 );

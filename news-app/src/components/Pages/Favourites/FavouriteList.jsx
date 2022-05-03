@@ -2,12 +2,15 @@ import { Box, Button } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { CLEAR_FAV, FAV_DATA } from "../../../context/article-slice";
+import { CLEAR_FAV, FAV_DATA } from "../../../store/article-slice";
 import FavouriteItem from "./FavouriteItem";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 export default function FavouriteList() {
   const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function clearAllFav() {
     Swal.fire({
@@ -22,6 +25,7 @@ export default function FavouriteList() {
       if (result.isConfirmed) {
         Swal.fire("Removed All!", "Removed successfully.", "success");
         dispatch(CLEAR_FAV());
+        navigate("/");
       }
     });
   }
@@ -58,7 +62,7 @@ export default function FavouriteList() {
           }}
         >
           {favData.map((article) => (
-            <FavouriteItem key={article.url} article={article} />
+            <FavouriteItem key={uuidv4()} article={article} />
           ))}
         </Box>
       )}

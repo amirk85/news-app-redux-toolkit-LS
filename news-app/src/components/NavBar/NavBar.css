@@ -4,9 +4,10 @@ a {
   text-decoration: none !important;
 }
 
+.nav_link:hover,
 .active {
   font-weight: 600 !important;
-  color: #f5f5f1 !important;
+  color: rgb(200, 220, 255) !important;
   text-decoration: underline !important;
 }
 

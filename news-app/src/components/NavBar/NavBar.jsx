@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import SearchBox from "./SearchBox/SearchBox";
 import Badge from "@mui/material/Badge";
-import { FAV_DATA } from "../../context/article-slice";
+import { FAV_DATA } from "../../store/article-slice";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
@@ -18,11 +18,17 @@ export default function NavBar() {
         <Navbar.Toggle className="side_bar" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink style={{ marginRight: "2rem" }} to="/">
+            <NavLink
+              className="nav_link"
+              style={{ marginRight: "2rem" }}
+              to="/"
+            >
               Home
             </NavLink>
             <Badge badgeContent={favCount} color="secondary">
-              <NavLink to="/favourites">Favourites</NavLink>
+              <NavLink className="nav_link" to="/favourites">
+                Favourites
+              </NavLink>
             </Badge>
           </Nav>
         </Navbar.Collapse>

@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useDispatch, useSelector } from "react-redux";
-import { CLOSE_ALERT } from "../../context/article-slice";
+import { CLOSE_ALERT } from "../../store/article-slice";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -30,8 +30,8 @@ export default function NotificationAlert() {
       >
         <Alert
           onClose={handleClose}
-          severity="primary"
-          sx={{ width: "100%", fontSize: "1.6rem" }}
+          severity="success"
+          sx={{ width: "100%", fontSize: "1.6rem", backgroundColor: "#4285F4" }}
         >
           Added to favourites successfully!
         </Alert>
