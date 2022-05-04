@@ -20,6 +20,12 @@ export default function NotificationAlert() {
     dispatch(CLOSE_ALERT());
   };
 
+  let alertWidth = "100%";
+
+  if (window.innerWidth <= 600) {
+    alertWidth = "95%";
+  }
+
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
       <Snackbar
@@ -36,12 +42,12 @@ export default function NotificationAlert() {
           onClose={handleClose}
           severity="success"
           sx={{
-            width: "100%",
+            width: { alertWidth },
             fontSize: "1",
             backgroundColor: "#34A853",
           }}
         >
-          Added to favourites successfully!
+          Added to Favourite successfully!
         </Alert>
       </Snackbar>
     </Stack>
