@@ -27,17 +27,18 @@ export default function NotificationAlert() {
         autoHideDuration={1500}
         transitionDuration={600}
         onClose={handleClose}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
       >
         <Alert
           onClose={handleClose}
           severity="success"
           sx={{
-            width: "25%",
+            width: "100%",
             fontSize: "1",
             backgroundColor: "#34A853",
-            position: "fixed",
-            top: "0.5rem",
-            right: "30%",
           }}
         >
           Added to favourites successfully!
