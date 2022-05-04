@@ -31,7 +31,14 @@ export default function NotificationAlert() {
         <Alert
           onClose={handleClose}
           severity="success"
-          sx={{ width: "100%", fontSize: "1.6rem", backgroundColor: "#4285F4" }}
+          sx={{
+            width: "25%",
+            fontSize: "1",
+            backgroundColor: "#34A853",
+            position: "fixed",
+            top: "0.5rem",
+            right: "30%",
+          }}
         >
           Added to favourites successfully!
         </Alert>
