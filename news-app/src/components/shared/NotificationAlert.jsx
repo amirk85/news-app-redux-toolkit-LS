@@ -25,7 +25,7 @@ export default function NotificationAlert() {
       <Snackbar
         open={success}
         autoHideDuration={1500}
-        transitionDuration={800}
+        transitionDuration={600}
         onClose={handleClose}
       >
         <Alert
