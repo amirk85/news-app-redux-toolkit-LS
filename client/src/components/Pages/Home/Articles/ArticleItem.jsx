@@ -11,6 +11,7 @@ import {
   ADD_TO_FAV,
   ARTICLE_DATA,
   FAV_DATA,
+  GET_ASYNC_DATA,
   OPEN_ALERT,
   REMOVE_FAV,
 } from "../../../../store/article-slice";
@@ -23,7 +24,6 @@ export default function ArticleItem({ article }) {
   const articleData = useSelector(ARTICLE_DATA);
   const favData = useSelector(FAV_DATA);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [btn, setBtn] = React.useState(<FavoriteBorderIcon />);
 
   function onFetchFav() {
@@ -54,7 +54,7 @@ export default function ArticleItem({ article }) {
         if (result.isConfirmed) {
           Swal.fire("Removed!", "Removed From Favourites", "success");
           dispatch(REMOVE_FAV(url));
-          navigate("/favourites");
+          dispatch(GET_ASYNC_DATA());
         }
       });
       return;

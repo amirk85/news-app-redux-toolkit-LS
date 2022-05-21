@@ -3,10 +3,7 @@ import Box from "@mui/material/Box";
 import { v4 as uuidv4 } from "uuid";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ARTICLE_DATA,
-  GET_ASYNC_DATA,
-} from "../../../../store/article-slice";
+import { ARTICLE_DATA, GET_ASYNC_DATA } from "../../../../store/article-slice";
 import ArticleItem from "./ArticleItem";
 
 export default function ArticleList() {
@@ -18,6 +15,7 @@ export default function ArticleList() {
   React.useEffect(() => {
     dispatch(GET_ASYNC_DATA());
   }, [dispatch]);
+
 
   return (
     <div>
